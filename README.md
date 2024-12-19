@@ -23,7 +23,7 @@ VFSShell - bu oddiy buyruq satr dasturi bo'lib, virtual fayl tizimi qobig'ini si
 
 VFSShell fayl tizimini simulyatsiya qilish uchun daraxt ma'lumotlar tuzilmasidan foydalanadi:
 
-- Har bir katalog yoki fayl `Node` strukturasi sifatida taqdim etiladi.
+- Har bir katalog yoki fayl `Node` strukturasi sifatida taqdim etiladi (`Tree Data Structure`).
 - Tugunlar nom, tur (fayl yoki katalog) va ularning ota, bola va aka-uka tugunlariga ko'rsatgichlarga ega.
 - "root" katalogi ildiz sifatida ishga tushiriladi va barcha operatsiyalar unga nisbatan amalga oshiriladi.
 
@@ -72,6 +72,10 @@ file1.txt
 images/
 ➜ docs find file1.txt
 root/docs/file1.txt/
+➜ docs tree
+docs/
+  file1.txt
+  images/
 ➜ docs exit
 ```
 
