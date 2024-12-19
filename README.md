@@ -15,7 +15,7 @@ VFSShell - bu oddiy buyruq satr dasturi bo'lib, virtual fayl tizimi qobig'ini si
   - `ls` buyrug'i yordamida joriy katalogdagi fayllar va kataloglarni ko'rish.
   - `find` buyrug'i yordamida fayl yoki katalogni nomi bo'yicha qidirish.
 - **Daraxt Ko'rinishi**
-  - `print_tree` funksiyasi yordamida katalog strukturasini rekursiv ravishda ko'rsatish.
+  - `tree` funksiyasi yordamida katalog strukturasini rekursiv ravishda ko'rsatish.
 - **Chiqish**
   - `exit` buyrug'i yordamida qobiqdan chiqish.
 
@@ -104,8 +104,6 @@ docs/
    - **`create_node()`**: Yangi fayl yoki papka yaratadi.
    - **`insert_node()`**: Yangi fayl yoki papkani hozirgi papkaga qo'shadi.
    - **`search_node()`**: Joriy papkada berilgan nom bilan fayl yoki papkani qidiradi.
-   - **`print_tree()`**: Fayl tizimini daraxt ko'rinishida ko'rsatadi.
-   - **`path()`**: Hozirgi yoki ko'rsatilgan tugunning to'liq yo'lini chiqaradi.
 
 4. **Buyruqlar**:
    - **`touch <nom>`**: Fayl yaratadi.
