@@ -38,6 +38,7 @@ VFSShell fayl tizimini simulyatsiya qilish uchun daraxt ma'lumotlar tuzilmasidan
 | `enter <name>` | Ko'rsatilgan katalogga kiradi.                  |
 | `back`      | Ota katalogga qaytadi.                          |
 | `find <name>` | Fayl yoki katalogni nomi bo'yicha qidiradi.     |
+| `tree` | Joriy katologning tuzilishini daraxt ko'rinishida chiqaradi. |
 | `exit`      | Qobiqdan chiqadi.                               |
 
 ## Foydalanish
