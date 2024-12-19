@@ -1,0 +1,6 @@
+# ignore vscode
+.vscode
+
+# ignore c
+*.exe
+*.out
