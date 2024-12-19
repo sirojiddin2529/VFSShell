@@ -82,26 +82,45 @@ docs/
 
 ## Kod Haqida Umumiy Ma'lumot
 
-### Asosiy Funksiyalar
+### Kodning asosiy qismlari va funksiyalari:
+1. **Ma'lumot tuzilmasi (`struct Node`)**:
+   - Har bir `Node` papka yoki faylni ifodalaydi.
+   - `name`: Fayl yoki papka nomi.
+   - `is_file`: Fayl yoki papka ekanligini bildiradi (1 - fayl, 0 - papka).
+   - `next`: Bitta papka ichidagi navbatdagi elementga ishora qiladi.
+   - `child`: Papka ichidagi birinchi elementga ishora qiladi.
+   - `parent`: Yuqori darajadagi papkaga ishora qiladi.
+   - `size`: Fayl yoki papkaning hajmi ifodalaydi.
+   - `created_at`: Fayl yoki papkani qachon yaratilganligini ifodalaydi.
+   - `updated_at`: Fayl yoki papkaga qachon o'zgartirish kiritilganligini ifodalaydi.
 
-- `init()`: Root katalogini ishga tushiradi.
-- `create_node()`: Yangi tugun (fayl yoki katalog) yaratadi.
-- `insert_node()`: Tugunni bola yoki aka-uka sifatida joriy katalogga qo'shadi.
-- `search_node()`: Bolalar orasidan nomi bo'yicha tugunni qidiradi.
-- `print_tree()`: Daraxt strukturasini rekursiv ravishda chop etadi.
-- `find()`: Butun fayl tizimidan tugunni qidiradi va uning yo'lini chop etadi.
+2. **Global o'zgaruvchilar**:
+   - `root`: Fayl tizimining ildizi.
+   - `current`: Hozirgi papka.
 
-### Ma'lumotlar Tuzilmasi
+3. **Asosiy funksiyalar**:
+   - **`init()`**: Fayl tizimini boshlang'ich holatga keltiradi, `root` papkasini yaratadi.
+   - **`prompt()`**: Joriy papka nomini ko'rsatadi.
+   - **`create_node()`**: Yangi fayl yoki papka yaratadi.
+   - **`insert_node()`**: Yangi fayl yoki papkani hozirgi papkaga qo'shadi.
+   - **`search_node()`**: Joriy papkada berilgan nom bilan fayl yoki papkani qidiradi.
+   - **`print_tree()`**: Fayl tizimini daraxt ko'rinishida ko'rsatadi.
+   - **`path()`**: Hozirgi yoki ko'rsatilgan tugunning to'liq yo'lini chiqaradi.
 
-```c
-typedef struct Node {
-    char name[50];
-    int is_file;
-    struct Node *next;
-    struct Node *child;
-    struct Node *parent;
-} Node;
-```
+4. **Buyruqlar**:
+   - **`touch <nom>`**: Fayl yaratadi.
+   - **`mkdir <nom>`**: Papka yaratadi.
+   - **`ls`**: Hozirgi papkada mavjud fayl va papkalarni ro'yxat qiladi.
+   - **`enter <nom>`**: Ko'rsatilgan papkaga kiradi.
+   - **`back`**: Bir daraja yuqori papkaga qaytadi.
+   - **`pwd`**: Joriy papkaning to'liq yo'lini ko'rsatadi.
+   - **`find <nom>`**: Fayl tizimida berilgan nomdagi fayl yoki papkani qidiradi.
+   - **`tree`**: Fayl tizimini daraxt ko'rinishida ko'rsatadi.
+   - **`exit`**: Dasturdan chiqadi.
+
+5. **Boshlanishi (`main`)**:
+   - Fayl tizimini boshlaydi (`init()`).
+   - Foydalanuvchi kiritgan buyruqlarni o'qiydi va tegishli funksiyalarni bajaradi.
 
 ## Kelajakdagi Takomillashtirishlar
 
@@ -109,10 +128,6 @@ typedef struct Node {
 - Ruxsatnomalar va fayl o'lchamlari atributlarini joriy qilish.
 - Buyruqlar tarixini va avtomatik to'ldirish funksiyasini qo'shish.
 - Dinamik kiritish o'lchamlarini boshqarish uchun xotira boshqaruvini yaxshilash.
-
-## Litsenziya
-
-Ushbu loyiha MIT Litsenziyasi ostida chiqarilgan.
 
 ---
 
