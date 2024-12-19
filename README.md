@@ -87,12 +87,11 @@ docs/
    - Har bir `Node` papka yoki faylni ifodalaydi.
    - `name`: Fayl yoki papka nomi.
    - `is_file`: Fayl yoki papka ekanligini bildiradi (1 - fayl, 0 - papka).
-   - `next`: Bitta papka ichidagi navbatdagi elementga ishora qiladi.
-   - `child`: Papka ichidagi birinchi elementga ishora qiladi.
-   - `parent`: Yuqori darajadagi papkaga ishora qiladi.
-   - `size`: Fayl yoki papkaning hajmi ifodalaydi.
    - `created_at`: Fayl yoki papkani qachon yaratilganligini ifodalaydi.
    - `updated_at`: Fayl yoki papkaga qachon o'zgartirish kiritilganligini ifodalaydi.
+   - `parent`: Yuqori darajadagi papkaga ishora qiladi.
+   - `next`: Bitta papka ichidagi navbatdagi elementga ishora qiladi.
+   - `child`: Papka ichidagi birinchi elementga ishora qiladi.
 
 2. **Global o'zgaruvchilar**:
    - `root`: Fayl tizimining ildizi.
