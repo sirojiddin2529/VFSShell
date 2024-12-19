@@ -1,62 +1,62 @@
 # VFSShell
 
-VFSShell is a simple command-line program that simulates a virtual file system shell. It allows users to navigate a tree-structured directory, create files and directories, and perform basic file system operations.
+VFSShell - bu oddiy buyruq satr dasturi bo'lib, virtual fayl tizimi qobig'ini simulyatsiya qiladi. Foydalanuvchilarga daraxt strukturasidagi katalogni navigatsiya qilish, fayllar va kataloglarni yaratish, va asosiy fayl tizimi operatsiyalarini bajarish imkonini beradi.
 
-## Features
+## Xususiyatlar
 
-- **File and Directory Management**
-  - Create files with the `touch` command.
-  - Create directories with the `mkdir` command.
-- **Navigation**
-  - Enter directories with the `enter` command.
-  - Go back to the parent directory with the `back` command.
-  - Display the current path with the `pwd` command.
-- **Listing and Searching**
-  - List files and directories in the current directory with the `ls` command.
-  - Search for a file or directory by name with the `find` command.
-- **Tree View**
-  - Display the directory structure recursively with the `tree` functionality (part of the `print_tree` function).
-- **Exit**
-  - Exit the shell with the `exit` command.
+- **Fayl va Katalog Boshqaruvi**
+  - `touch` buyrug'i bilan fayllarni yaratish.
+  - `mkdir` buyrug'i bilan kataloglarni yaratish.
+- **Navigatsiya**
+  - `enter` buyrug'i yordamida kataloglarga kirish.
+  - `back` buyrug'i yordamida ota katalogga qaytish.
+  - `pwd` buyrug'i bilan joriy yo'lni ko'rsatish.
+- **Ro'yxatlash va Qidirish**
+  - `ls` buyrug'i yordamida joriy katalogdagi fayllar va kataloglarni ko'rish.
+  - `find` buyrug'i yordamida fayl yoki katalogni nomi bo'yicha qidirish.
+- **Daraxt Ko'rinishi**
+  - `print_tree` funksiyasi yordamida katalog strukturasini rekursiv ravishda ko'rsatish.
+- **Chiqish**
+  - `exit` buyrug'i yordamida qobiqdan chiqish.
 
-## How It Works
+## Ishlash Tartibi
 
-VFSShell uses a tree data structure to simulate the file system:
+VFSShell fayl tizimini simulyatsiya qilish uchun daraxt ma'lumotlar tuzilmasidan foydalanadi:
 
-- Each directory or file is represented as a `Node` structure.
-- Nodes have a name, type (file or directory), and pointers to their parent, child, and sibling nodes.
-- The root directory is initialized as "root," and all operations are performed relative to it.
+- Har bir katalog yoki fayl `Node` strukturasi sifatida taqdim etiladi.
+- Tugunlar nom, tur (fayl yoki katalog) va ularning ota, bola va aka-uka tugunlariga ko'rsatgichlarga ega.
+- "root" katalogi ildiz sifatida ishga tushiriladi va barcha operatsiyalar unga nisbatan amalga oshiriladi.
 
-## Commands
+## Buyruqlar
 
-| Command      | Description                                      |
-|--------------|--------------------------------------------------|
-| `pwd`        | Print the full path of the current directory.    |
-| `ls`         | List all files and directories in the current directory. |
-| `touch <name>` | Create a new file in the current directory.     |
-| `mkdir <name>` | Create a new directory in the current directory.|
-| `enter <name>` | Enter a specified directory.                   |
-| `back`       | Go back to the parent directory.                |
-| `find <name>` | Search for a file or directory by name.         |
-| `exit`       | Exit the shell.                                 |
+| Buyruq      | Tavsif                                           |
+|-------------|-------------------------------------------------|
+| `pwd`       | Joriy katalogning to'liq yo'lini ko'rsatadi.    |
+| `ls`        | Joriy katalogdagi barcha fayllar va kataloglarni ro'yxatlaydi. |
+| `touch <name>` | Joriy katalogda yangi fayl yaratadi.            |
+| `mkdir <name>` | Joriy katalogda yangi katalog yaratadi.         |
+| `enter <name>` | Ko'rsatilgan katalogga kiradi.                  |
+| `back`      | Ota katalogga qaytadi.                          |
+| `find <name>` | Fayl yoki katalogni nomi bo'yicha qidiradi.     |
+| `exit`      | Qobiqdan chiqadi.                               |
 
-## Usage
+## Foydalanish
 
-1. Compile the program using a C compiler:
+1. Dastur kodini C kompilyatori yordamida kompilyatsiya qiling:
 
    ```bash
    gcc vfsshell.c -o vfsshell
    ```
 
-2. Run the compiled program:
+2. Tayyor dasturni ishga tushiring:
 
    ```bash
    ./vfsshell
    ```
 
-3. Use the commands listed above to navigate and manage the virtual file system.
+3. Yuqoridagi buyruqlar yordamida virtual fayl tizimini navigatsiya qiling va boshqaring.
 
-## Example
+## Misol
 
 ```bash
 ➜ root mkdir docs
@@ -75,18 +75,18 @@ root/docs/file1.txt/
 ➜ docs exit
 ```
 
-## Code Overview
+## Kod Haqida Umumiy Ma'lumot
 
-### Key Functions
+### Asosiy Funksiyalar
 
-- `init()`: Initializes the root directory.
-- `create_node()`: Creates a new node (file or directory).
-- `insert_node()`: Inserts a node as a child or sibling of the current directory.
-- `search_node()`: Searches for a child node by name.
-- `print_tree()`: Recursively prints the directory tree.
-- `find()`: Searches for a node in the entire file system and prints its path.
+- `init()`: Root katalogini ishga tushiradi.
+- `create_node()`: Yangi tugun (fayl yoki katalog) yaratadi.
+- `insert_node()`: Tugunni bola yoki aka-uka sifatida joriy katalogga qo'shadi.
+- `search_node()`: Bolalar orasidan nomi bo'yicha tugunni qidiradi.
+- `print_tree()`: Daraxt strukturasini rekursiv ravishda chop etadi.
+- `find()`: Butun fayl tizimidan tugunni qidiradi va uning yo'lini chop etadi.
 
-### Data Structure
+### Ma'lumotlar Tuzilmasi
 
 ```c
 typedef struct Node {
@@ -98,17 +98,17 @@ typedef struct Node {
 } Node;
 ```
 
-## Future Improvements
+## Kelajakdagi Takomillashtirishlar
 
-- Add support for deleting files and directories.
-- Implement permissions and file size attributes.
-- Add command history and tab-completion for commands.
-- Improve memory management to handle dynamic input sizes.
+- Fayllar va kataloglarni o'chirish funksiyasini qo'shish.
+- Ruxsatnomalar va fayl o'lchamlari atributlarini joriy qilish.
+- Buyruqlar tarixini va avtomatik to'ldirish funksiyasini qo'shish.
+- Dinamik kiritish o'lchamlarini boshqarish uchun xotira boshqaruvini yaxshilash.
 
-## License
+## Litsenziya
 
-This project is released under the MIT License.
+Ushbu loyiha MIT Litsenziyasi ostida chiqarilgan.
 
 ---
 
-Happy coding with VFSShell!
+VFSShell bilan kodlashdan zavqlaning!
