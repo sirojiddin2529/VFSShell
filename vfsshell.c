@@ -21,11 +21,16 @@ void init();
 void prompt();
 Node *create_node(char *name, int is_file);
 void insert_node(Node *node);
+Node* search_node(char *name);
+void path(Node *node);
 
 // commands
 void mkdir(char *name);
 void touch(char *name);
 void ls();
+void enter(char *name);
+void back();
+void pwd();
 
 int main() {
 
@@ -46,6 +51,13 @@ int main() {
             touch(arg);
         } else if (strcmp(command, "ls") == 0) {
             ls();
+        } else if (strcmp(command, "enter") == 0) {
+            scanf("%s", arg);
+            enter(arg);
+        } else if (strcmp(command, "back") == 0) {
+            back();
+        } else if (strcmp(command, "pwd") == 0) {
+            pwd();
         } else {
             printf("vfsshell: command not found: %s\n", command);
         }
@@ -123,5 +135,49 @@ void ls() {
         print_node(temp);
         temp = temp->next;
     }
+}
+
+Node *search_node(char *name) {
+    Node *temp = current->child;
+
+    while (temp != NULL) {
+        if (strcmp(temp->name, name) == 0) {
+            return temp;
+        }
+        temp = temp->next;
+    }
+
+    return NULL;
+}
+
+void enter(char *name) {
+    Node *node = search_node(name);
+    if (node != NULL)
+        current = node;
+    else
+        printf("vfsshell: no such File or Directory.\n");
+}
+
+void back() {
+    if (current != root) {
+        current = current->parent;
+    } else {
+        printf("vfsshell: already root.\n");
+    }
+}
+
+void path(Node *node) {
+    if (node == root) {
+        printf("%s/", node->name);
+        return;
+    } else if (node->parent != NULL) {
+        path(node->parent);
+    }
+    printf("%s/", node->name);
+}
+
+void pwd() {
+    path(current);
+    printf("\n");
 }
 
